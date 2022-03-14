@@ -17,7 +17,7 @@ spec:
         kind: HelmRepository
         name: eks-charts
   values:
-    clusterName: sandbox
+    clusterName: j-stanoevski-lab-k8s-eks-sandbox
     serviceAccount:
       create: false
       name: aws-load-balancer-controller

@@ -17,7 +17,7 @@ spec:
         kind: HelmRepository
         name: fluent
   values:
-    clusterName: sandbox
+    clusterName: j-stanoevski-lab-k8s-eks-sandbox
     image:
       repository: public.ecr.aws/aws-observability/aws-for-fluent-bit
       tag: latest
