@@ -18,7 +18,7 @@ spec:
         name: cluster-autoscaler
   values:
     autoDiscovery:
-      clusterName: sandbox
+      clusterName: js-sandbox
     rbac:
       serviceAccount:
         create: false

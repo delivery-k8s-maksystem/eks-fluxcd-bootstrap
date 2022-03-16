@@ -1,13 +1,13 @@
 kind: ClusterConfig
 apiVersion: eksctl.io/v1alpha5
 metadata:
-  name: sandbox
+  name: js-sandbox
   version: "1.21"
-  region: us-east-1
+  region: eu-west-2
 availabilityZones:
-  - us-east-1a
-  - us-east-1b
-  - us-east-1c
+  - eu-west-2a
+  - eu-west-2b
+  - eu-west-2c
 iam:
   withOIDC: true
   serviceAccounts:
@@ -16,25 +16,25 @@ iam:
         namespace: kube-system
       wellKnownPolicies:
         autoScaler: true
-      roleName: sandbox-autoscaler-role
+      roleName: js-sandbox-autoscaler-role
     - metadata:
         name: aws-load-balancer-controller
         namespace: aws-system
       wellKnownPolicies:
         awsLoadBalancerController: true
-      roleName: sandbox-lb-controller-role
+      roleName: js-sandbox-lb-controller-role
     - metadata:
         name: aws-cloudwatch-agent
         namespace: aws-system
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-      roleName: sandbox-cloudwatch-metrics
+      roleName: js-sandbox-cloudwatch-metrics
     - metadata:
         name: aws-fluent-bit
         namespace: aws-system
       attachPolicyARNs:
         - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
-      roleName: sandbox-fluent-bit
+      roleName: js-sandbox-fluent-bit
 addons:
   - name: vpc-cni
     version: latest
@@ -46,13 +46,13 @@ gitops:
   flux:
     gitProvider: github
     flags:
-      owner: <YOUR GH USERNAME>
+      owner: delivery-k8s-maksystem
       repository: eks-fluxcd-bootstrap
       branch: demo
       path: ./clusters/sandbox/
       namespace: flux-system
 managedNodeGroups:
-  - name: sandbox-amd64-workers
+  - name: js-sandbox-amd64-workers
     instanceType: m5.large
     desiredCapacity: 3
     minSize: 2
