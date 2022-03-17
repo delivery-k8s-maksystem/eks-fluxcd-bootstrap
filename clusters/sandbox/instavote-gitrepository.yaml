@@ -1,0 +1,32 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  annotations:
+    reconcile.fluxcd.io/requestedAt: "2022-03-16T18:48:48.976066+01:00"
+  name: instavote
+  namespace: flux-system
+spec:
+  gitImplementation: go-git
+  interval: 30s
+  ref:
+    branch: main
+  timeout: 20s
+  url: https://github.com/delivery-k8s-maksystem/instavote.git
+
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  annotations:
+    reconcile.fluxcd.io/requestedAt: "2022-03-17T09:14:34.833673+01:00"
+  name: instavote
+  namespace: flux-system
+spec:
+  gitImplementation: go-git
+  interval: 30s
+  ref:
+    branch: main
+  timeout: 20s
+  url: https://github.com/delivery-k8s-maksystem/instavote.git
+
