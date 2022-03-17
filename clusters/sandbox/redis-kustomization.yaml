@@ -3,17 +3,15 @@ Flag --validation has been deprecated, this arg is no longer used, all resources
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: vote-dev
+  name: redis-dev
   namespace: flux-system
 spec:
-  dependsOn:
-  - name: redis-dev
   healthChecks:
   - kind: Deployment
-    name: vote
+    name: redis
     namespace: instavote
   interval: 1m0s
-  path: ./deploy/vote
+  path: ./deploy/redis
   prune: true
   sourceRef:
     kind: GitRepository
