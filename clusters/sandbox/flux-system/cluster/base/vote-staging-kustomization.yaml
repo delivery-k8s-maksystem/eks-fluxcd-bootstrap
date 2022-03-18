@@ -1,0 +1,21 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: vote-staging
+  namespace: instavote
+spec:
+  healthChecks:
+  - kind: Deployment
+    name: vote
+    namespace: instavote
+  interval: 1h
+  path: ./kustomize/vote/staging
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: instavote
+  targetNamespace: instavote
+  timeout: 2m0s
+  validation: client
+
